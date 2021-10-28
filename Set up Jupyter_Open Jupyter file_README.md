@@ -1,4 +1,4 @@
-# Springer-Nature
+# Springer-Nature Engineer Challenge Set-up
 
 If you have already set up Jupyter Notebook on your PC, please feel free to skip to Step 7 - To open the specific JN data engineer challenge file on line 147
 I have designed a complementary jupyter notebook cheatsheet to get more out of the app - https://cheatography.com/datamansam/cheat-sheets/jupyter-notebook/
