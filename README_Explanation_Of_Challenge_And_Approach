@@ -3,14 +3,20 @@ The idea is to: Create an ELT framework with code to demonstrate the movement of
 - When streaming data from web sources, we can think of each piece of data we collect as an event
 - We can extract dimensional information on the user, the post and time from each event 
 
-We will break the workflow down into different stages:
-a) The connection to data source
-b) The extraction of user and post ID, and timestamp from each event 
-c) Depositing user and post ID, and timestamp into a data lake as csv files 
-d) A producer that parses each file to produce batches of 10 content views, in timestamp order, across all sites
-e) A consumer that consumes batches of 10 content views to generates the following insights across all events:
-1. The site with the most article views
-2. The most common paper
+I split the workflow down into different stages:
+A. Collating data from source with Power Automate and loading data into Azure blob storage
+Picture 1 gives and overview of the Power Automate flow, which also
+i) Extracts user and post ID, and timestamp from each event 
+ii) Deposits user and post ID, and timestamp into a data lake as csv files 
+Picture 2 is of the container and 3 is of the blobs that twitter data resides within 
+
+B. Establishing a connection to azure storage with databricks
+Picture 3 is of this notebook
+
+C. Processing the data with a databricks, python notebook
+i) A producer that parses each file to produce batches of 10 content views, in timestamp order, across all sites
+ii) A consumer that consumes batches of 10 content views to generates the following insights across all events:
+1. The tweet with the most article views
+2. The most common tweet
 3. Busiest 1 minute period
-4. Suspected Robot Users - continuous clicks on different articles by the same user within the same one-second period
-5. All of the above, for given time windows
+4. Suspected Robot Users - continuous clicks on different tweets by the same user within the same one-second period
