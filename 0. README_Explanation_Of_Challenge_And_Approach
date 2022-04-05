@@ -20,3 +20,5 @@ ii) A consumer that consumes batches of 10 content views to generates the follow
 2. The most common tweet
 3. Busiest 1 minute period
 4. Suspected Robot Users - continuous clicks on different tweets by the same user within the same one-second period
+
+Note that the term tweet, post and article are used interchangably
