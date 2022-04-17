@@ -1,26 +1,28 @@
-The idea is to: Create an ELT framework with code to demonstrate the movement of Facebook or Twitter data into a Datalake.
+Objective: Creating an ELT framework with code to demonstrate the movement of Facebook or Twitter data into a Datalake.
+- Generally, ETL flows work well when simple transformations are performed with mapping flows, and we utlize code for more complex processing
+        Here, ingestion is performed with Power Automate and more complex tasks with python via an ipydb Jupyter Notebook. 
+A map with an overview of the whole process can be seen here: (https://excalidraw.com/#json=t5ZNIf1ojVKu8bSaYo4Eu,CW9uYJTA4DslFjSVqUmRdw) 
 
-A map with an overview of the whole process can be seen here (https://excalidraw.com/#json=t5ZNIf1ojVKu8bSaYo4Eu,CW9uYJTA4DslFjSVqUmRdw) 
 
-- When streaming data from web sources, we can think of each piece of data we collect as an event
-- We can extract dimensional information on the user, the post and time from each event 
 
 I split the workflow down into different stages:
-A. Collating data from source with Power Automate and loading data into Azure blob storage
-Item 1 (a PNG file) gives and overview of the Power Automate flow, which also:
-i) Extracts user and post ID, and timestamp from each event 
-ii) Deposits user and post ID, and timestamp into a data lake as csv files 
-Item 2 is of the container and 3 (also PNG files) are of the blobs that twitter data resides within 
+  A. Collating data from source with Power Automate and loading data into Azure blob storage:
+          - When streaming data from web sources, we can think of each piece of data we collect as an event
+          - We can extract dimensional information on the user, the post and time from each event 
+      Item 1 (a PNG file) gives and overview of the Power Automate flow, which in addition to collating events:
+        i) Extracts user and post ID, and timestamp from each event 
+        ii) Deposits user and post ID, and timestamp into a data lake as csv files 
+      Item 2 is of the container and 3 (also PNG files) are of the blobs that twitter data resides within 
 
-B. Establishing a connection to azure storage with databricks
-Item 4 is of this notebook
+  B. Establishing a connection to azure storage with databricks:
+      Item 4 is of this notebook
 
-C. Processing the data with a databricks, python notebook, item 5
-i) A producer that parses each file to produce batches of 10 content views, in timestamp order, across all sites
-ii) A consumer that consumes batches of 10 content views to generates the following insights across all events:
-1. The tweet with the most article views
-2. The most common tweet
-3. Busiest 1 minute period
-4. Suspected Robot Users - continuous clicks on different tweets by the same user within the same one-second period
+  C. Processing the data with a databricks, python notebook, item 5
+      i) A producer that parses each file to produce batches of 10 content views, in timestamp order, across all sites
+      ii) A consumer that consumes batches of 10 content views to generates the following insights across all events:
+          1. The tweet with the most article views
+          2. The most common tweet
+          3. Busiest 1 minute period
+          4. Suspected Robot Users - continuous clicks on different tweets by the same user within the same one-second period
 
 Note that the term tweet, post and article are used interchangably
