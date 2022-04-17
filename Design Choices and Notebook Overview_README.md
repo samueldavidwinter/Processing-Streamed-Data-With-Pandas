@@ -1,4 +1,4 @@
-# Streamed Pandas Processing Read mE
+# Streamed Pandas Processing Read me
 To make best, efficient use of the notebook to produce output, I suggest pressing the run all cells button (two arrows next to the code drop down) then navigating to cell 11, 
 and calling the consume function with your choosen minute/second window 
 
