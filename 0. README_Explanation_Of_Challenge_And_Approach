@@ -1,6 +1,6 @@
 The idea is to: Create an ELT framework with code to demonstrate the movement of Facebook or Twitter data into a Datalake.
 
-A map with an overview of the whole process can be seen here (https://excalidraw.com/) 
+A map with an overview of the whole process can be seen here (https://excalidraw.com/#json=t5ZNIf1ojVKu8bSaYo4Eu,CW9uYJTA4DslFjSVqUmRdw) 
 
 - When streaming data from web sources, we can think of each piece of data we collect as an event
 - We can extract dimensional information on the user, the post and time from each event 
