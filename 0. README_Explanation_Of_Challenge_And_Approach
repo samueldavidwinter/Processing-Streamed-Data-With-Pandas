@@ -1,4 +1,4 @@
-The idea is to: Create an ELT framework with code to demonstrate the movement of Facebook or Twitter data Facebook or Twitter data into a Data Lake.
+The idea is to: Create an ELT framework with code to demonstrate the movement of Facebook or Twitter data into a Datalake.
 
 A map with an overview of the whole process can be seen here (https://excalidraw.com/) 
 
@@ -7,15 +7,15 @@ A map with an overview of the whole process can be seen here (https://excalidraw
 
 I split the workflow down into different stages:
 A. Collating data from source with Power Automate and loading data into Azure blob storage
-Picture 1 gives and overview of the Power Automate flow, which also
+Item 1 (a PNG file) gives and overview of the Power Automate flow, which also:
 i) Extracts user and post ID, and timestamp from each event 
 ii) Deposits user and post ID, and timestamp into a data lake as csv files 
-Picture 2 is of the container and 3 is of the blobs that twitter data resides within 
+Item 2 is of the container and 3 (also PNG files) are of the blobs that twitter data resides within 
 
 B. Establishing a connection to azure storage with databricks
-Picture 3 is of this notebook
+Item 4 is of this notebook
 
-C. Processing the data with a databricks, python notebook
+C. Processing the data with a databricks, python notebook, item 5
 i) A producer that parses each file to produce batches of 10 content views, in timestamp order, across all sites
 ii) A consumer that consumes batches of 10 content views to generates the following insights across all events:
 1. The tweet with the most article views
